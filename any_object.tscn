@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://tmokg3qse7on"]
+
+[ext_resource type="Script" path="res://any_object.gd" id="1_2nnns"]
+[ext_resource type="Texture2D" uid="uid://ghjjb4gkl6wh" path="res://jumper-jump.png" id="1_pdncw"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_2nnns")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 9.53674e-07)
+scale = Vector2(0.40625, 0.40625)
+texture = ExtResource("1_pdncw")

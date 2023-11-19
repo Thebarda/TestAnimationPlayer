@@ -1,0 +1,127 @@
+[gd_scene load_steps=9 format=3 uid="uid://b03qb78mis2xs"]
+
+[ext_resource type="Texture2D" uid="uid://642pjit4sxlx" path="res://player-run.png" id="1_034jm"]
+[ext_resource type="Script" path="res://Test.gd" id="1_nqybg"]
+
+[sub_resource type="Animation" id="Animation_cvi0w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_3p2rb"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fl8pu"]
+_data = {
+"RESET": SubResource("Animation_cvi0w"),
+"new_animation": SubResource("Animation_3p2rb")
+}
+
+[sub_resource type="Animation" id="Animation_8ausd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_tnvta"]
+resource_name = "new_animation"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(9, 3), Vector2(10, -1), Vector2(8, -4), Vector2(10, -2), Vector2(9, 3), Vector2(-2, 10), Vector2(-7, 7), Vector2(-9, 3), Vector2(-7, 7), Vector2(-2, 10), Vector2(5, 9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.424115, -0.989602, -0.565487, 0.0, 0.987856, 0.987856, 0.987856, 0.987856, 0.987856, 0.523599]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x8kfy"]
+_data = {
+"RESET": SubResource("Animation_8ausd"),
+"new_animation": SubResource("Animation_tnvta")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_nqybg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_034jm")
+hframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_fl8pu")
+}
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(8, 3)
+scale = Vector2(0.31503, 0.315168)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Marker2D"]
+libraries = {
+"": SubResource("AnimationLibrary_x8kfy")
+}
