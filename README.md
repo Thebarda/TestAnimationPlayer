@@ -11,3 +11,6 @@ Finally the level Scene instantiates the object scene in the `_ready` function.
 
 Using this way, we can attach any scene to the character (even the character itself).
 If we want to change the item when the scene is playing (such as changing a weapon) using a signal.
+
+Complete Animation
+![Character](https://github.com/Thebarda/TestAnimationPlayer/assets/12515407/fd04a05a-2703-46b0-82af-4ccec82a6fd7)
