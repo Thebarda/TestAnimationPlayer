@@ -1,6 +1,6 @@
 # Dynamic animated object with character
 
-![Character](https://github.com/Thebarda/TestAnimationPlayer/assets/12515407/fd04a05a-2703-46b0-82af-4ccec82a6fd7)
+![Character)](https://github.com/Thebarda/TestAnimationPlayer/assets/12515407/0002a8b1-62dd-4950-a311-53625bd0ad1e)
 
 This is a test in order to learn how to dynamically attach any object to character movement.
 
